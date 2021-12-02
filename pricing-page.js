@@ -1,4 +1,4 @@
-<script>
+
 $(function(){
     // links to elements on the page
     var uiStorage = {
@@ -475,4 +475,4 @@ $(function(){
 
 });
 
-</script>
+
