@@ -49,7 +49,8 @@ $(function(){
         calculatorCost: $("#calculator-amount"),
         calculatorBookingFee: $("#calculator-booking-fee"),
         calculatorBillingToggle: $("#calculator-billing-toggle"),
-        calculatorToggleDot: $("#calculator-toggle-dot")
+        calculatorToggleDot: $("#calculator-toggle-dot"),
+        calculatorPerMonthText: $("#calculator-per-month-label")
 
 
     };
@@ -203,10 +204,10 @@ $(function(){
         uiStorage.calculatorBillingCheckbox.prop('checked', false);
         uiStorage.calculatorToggleDot.css({float: "left"});
 
-        uiStorage.calculatorPackageLabel = packageNameText.explorer;
+        uiStorage.calculatorPackageLabel.html(packageNameText.explorer);
 
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
-        alert(selectedCurrency);
+        //alert(selectedCurrency);
 
         switch(selectedCurrency){
             //select usd, initial state is annual cost
@@ -225,8 +226,8 @@ $(function(){
                 alert("unexpected currency selected in the dropdown");
         }
 
-        alert("run after switch");
-
+        //alert("run after switch");
+        uiStorage.calculatorPerMonthText.show();
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.explorerBookingFee);
 
     }
@@ -244,7 +245,7 @@ $(function(){
         uiStorage.calculatorBillingCheckbox.prop('checked', false);
         uiStorage.calculatorToggleDot.css({float: "left"});
 
-        uiStorage.calculatorPackageLabel = packageNameText.byo;
+        uiStorage.calculatorPackageLabel.html(packageNameText.byo);
 
 
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
@@ -265,7 +266,7 @@ $(function(){
             default:
                 alert("unexpected currency selected in the dropdown");
         }
-
+        uiStorage.calculatorPerMonthText.show();
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.byoBookingFee);
 
     }
@@ -283,7 +284,7 @@ $(function(){
         uiStorage.calculatorBillingCheckbox.prop('checked', false);
         uiStorage.calculatorToggleDot.css({float: "left"});
 
-        uiStorage.calculatorPackageLabel = packageNameText.pnp;
+        uiStorage.calculatorPackageLabel.html(packageNameText.pnp);
 
 
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
@@ -305,6 +306,7 @@ $(function(){
                 alert("unexpected currency selected in the dropdown");
         }
 
+        uiStorage.calculatorPerMonthText.show();
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.pnpBookingFee);
 
     }
@@ -322,12 +324,12 @@ $(function(){
         uiStorage.calculatorBillingCheckbox.prop('checked', false);
         uiStorage.calculatorToggleDot.css({float: "left"});
 
-        uiStorage.calculatorPackageLabel = packageNameText.enterprise;
+        uiStorage.calculatorPackageLabel.html(packageNameText.enterprise);
 
 
         uiStorage.calculatorCurrencyLabel.html("call us!");
-        $("#calculator-per-month-label").html("");
         uiStorage.calculatorCost.html("");
+        uiStorage.calculatorPerMonthText.hide();
 
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.enterpriseBookingFee);
