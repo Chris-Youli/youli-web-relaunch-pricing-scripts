@@ -203,6 +203,8 @@ $(function(){
         uiStorage.calculatorBillingCheckbox.prop('checked', false);
         uiStorage.calculatorToggleDot.css({float: "left"});
 
+        uiStorage.calculatorPackageLabel = packageNameText.explorer;
+
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
         alert(selectedCurrency);
 
@@ -242,6 +244,9 @@ $(function(){
         uiStorage.calculatorBillingCheckbox.prop('checked', false);
         uiStorage.calculatorToggleDot.css({float: "left"});
 
+        uiStorage.calculatorPackageLabel = packageNameText.byo;
+
+
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
 
         switch(selectedCurrency){
@@ -249,11 +254,13 @@ $(function(){
             case 'usd':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
                 uiStorage.calculatorCost.html(packageCostPerMonth.byoUSDAnnual);
+                break;
 
             //select aud, initial state is annual cost
             case 'aud':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
                 uiStorage.calculatorCost.html(packageCostPerMonth.explorerAUDAnnual);
+                break;
 
             default:
                 alert("unexpected currency selected in the dropdown");
@@ -276,6 +283,9 @@ $(function(){
         uiStorage.calculatorBillingCheckbox.prop('checked', false);
         uiStorage.calculatorToggleDot.css({float: "left"});
 
+        uiStorage.calculatorPackageLabel = packageNameText.pnp;
+
+
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
 
         switch(selectedCurrency){
@@ -283,11 +293,13 @@ $(function(){
             case 'usd':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
                 uiStorage.calculatorCost.html(packageCostPerMonth.pnpUSDAnnual);
+                break;
 
             //select aud, initial state is annual cost
             case 'aud':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
                 uiStorage.calculatorCost.html(packageCostPerMonth.pnpAUDAnnual);
+                break;
 
             default:
                 alert("unexpected currency selected in the dropdown");
@@ -309,7 +321,12 @@ $(function(){
         //set initial state of toggle to left(annual)
         uiStorage.calculatorBillingCheckbox.prop('checked', false);
         uiStorage.calculatorToggleDot.css({float: "left"});
+
+        uiStorage.calculatorPackageLabel = packageNameText.enterprise;
+
+
         uiStorage.calculatorCurrencyLabel.html("call us!");
+        $("#calculator-per-month-label").html("");
         uiStorage.calculatorCost.html("");
 
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
