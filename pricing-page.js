@@ -38,7 +38,7 @@ $(function(){
         calculatorWebsiteCheckbox: $("#calculator-website-checkbox"),
         calculatorCrmCheckbox: $("#calculator-crm-checkbox"),
         calculatorApiCheckbox: $("#calculator-api-access"),
-        calculatorPhoneSupportCheckbox: $("#calculator-phone-support")
+        calculatorPhoneSupportCheckbox: $("#calculator-phone-support"),
 
         calculatorLottieExplorer: $("#calculator-lottie-explorer"),
         calculatorLottieByo: $("#calculator-lottie-byo"),
