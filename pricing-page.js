@@ -47,7 +47,7 @@ $(function(){
         calculatorPackageLabel: $("#calculator-package-label"),
         calculatorCurrencyLabel: $("#calculator-currency-label"),
         calculatorCost: $("#calculator-amount"),
-        calculatorBookingFee: $("#calculator-booking-fee")，
+        calculatorBookingFee: $("#calculator-booking-fee"),
         calculatorBillingToggle: $("#calculator-billing-toggle"),
         calculatorToggleDot: $("#calculator-toggle-dot")
 
