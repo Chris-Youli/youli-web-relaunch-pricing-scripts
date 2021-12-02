@@ -204,21 +204,26 @@ $(function(){
         uiStorage.calculatorToggleDot.css({float: "left"});
 
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
+        alert(selectedCurrency);
 
         switch(selectedCurrency){
             //select usd, initial state is annual cost
             case 'usd':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
                 uiStorage.calculatorCost.html(packageCostPerMonth.explorerUSDAnnual);
+                break;
 
             //select aud, initial state is annual cost
             case 'aud':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
                 uiStorage.calculatorCost.html(packageCostPerMonth.explorerAUDAnnual);
+                break;
 
             default:
                 alert("unexpected currency selected in the dropdown");
         }
+
+        alert("run after switch");
 
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.explorerBookingFee);
 
