@@ -122,8 +122,10 @@ $(function(){
 
 
     uiStorage.calculateButton.click(function(){
-        //alert("Calculate button clicked");
+      
         uiStorage.calculatorCardBlank.hide();
+        //hide card to show transition block
+        uiStorage.calculatorCardSwappable.hide();
         uiStorage.calculatorCardTransition.show();
         setTimeout(function(){
             uiStorage.calculatorCardTransition.hide();
