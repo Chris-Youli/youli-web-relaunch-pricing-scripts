@@ -125,8 +125,10 @@ $(function(){
         //alert("Calculate button clicked");
         uiStorage.calculatorCardBlank.hide();
         uiStorage.calculatorCardTransition.show();
-        setTimeout(function(){uiStorage.calculatorCardTransition.hide();}, 1000);
-        uiStorage.calculatorCardSwappable.show();
+        setTimeout(function(){
+            uiStorage.calculatorCardTransition.hide();
+            uiStorage.calculatorCardSwappable.show();
+        }, 1000);
 
         if(isCrmApiPhoneSupportChecked()){
             //alert("enterprise");
