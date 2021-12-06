@@ -272,7 +272,7 @@ $(function(){
             //select aud, initial state is annual cost
             case 'aud':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
-                uiStorage.calculatorCost.html(packageCostPerMonth.explorerAUDAnnual);
+                uiStorage.calculatorCost.html(packageCostPerMonth.byoAUDAnnual);
                 break;
 
             default:
