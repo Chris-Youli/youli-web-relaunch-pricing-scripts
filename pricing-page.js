@@ -50,7 +50,9 @@ $(function(){
         calculatorBookingFee: $("#calculator-booking-fee"),
         calculatorBillingToggle: $("#calculator-billing-toggle"),
         calculatorToggleDot: $("#calculator-toggle-dot"),
-        calculatorPerMonthText: $("#calculator-per-month-label")
+        calculatorPerMonthText: $("#calculator-per-month-label"),
+        calculatorEnterpriseCallUsLabel: $("#calculator-enterprise-call-us-label"),
+        calculatorCardTransition: $("#calculator-card-transition")
 
 
     };
@@ -97,7 +99,7 @@ $(function(){
 
     var currencyTextAndSign = {
         currencyUSD: "US$",
-        currencyAUD: "AU$"
+        currencyAUD: "A$"
     }
 
 
@@ -122,10 +124,13 @@ $(function(){
     uiStorage.calculateButton.click(function(){
         //alert("Calculate button clicked");
         uiStorage.calculatorCardBlank.hide();
+        uiStorage.calculatorCardTransition.show();
+        setTimeout(function(){calculatorCardTransition.hide();}, 1000);
         uiStorage.calculatorCardSwappable.show();
 
         if(isCrmApiPhoneSupportChecked()){
             //alert("enterprise");
+            
             showEnterpriseOnCalculator();
         }else{
 
@@ -227,6 +232,9 @@ $(function(){
         }
 
         //alert("run after switch");
+        uiStorage.calculatorEnterpriseCallUsLabel.hide();
+        uiStorage.calculatorCurrencyLabel.show();
+        uiStorage.calculatorCost.show();
         uiStorage.calculatorPerMonthText.show();
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.explorerBookingFee);
 
@@ -266,6 +274,11 @@ $(function(){
             default:
                 alert("unexpected currency selected in the dropdown");
         }
+        
+        
+        uiStorage.calculatorEnterpriseCallUsLabel.hide();
+        uiStorage.calculatorCurrencyLabel.show();
+        uiStorage.calculatorCost.show();
         uiStorage.calculatorPerMonthText.show();
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.byoBookingFee);
 
@@ -306,6 +319,10 @@ $(function(){
                 alert("unexpected currency selected in the dropdown");
         }
 
+
+        uiStorage.calculatorEnterpriseCallUsLabel.hide();
+        uiStorage.calculatorCurrencyLabel.show();
+        uiStorage.calculatorCost.show();
         uiStorage.calculatorPerMonthText.show();
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.pnpBookingFee);
 
@@ -326,9 +343,11 @@ $(function(){
 
         uiStorage.calculatorPackageLabel.html(packageNameText.enterprise);
 
-
-        uiStorage.calculatorCurrencyLabel.html("call us!");
-        uiStorage.calculatorCost.html("");
+        
+        //hide cost and currency label, show Call us label
+        uiStorage.calculatorEnterpriseCallUsLabel.show();
+        uiStorage.calculatorCurrencyLabel.hide();
+        uiStorage.calculatorCost.hide();
         uiStorage.calculatorPerMonthText.hide();
 
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
@@ -495,7 +514,6 @@ $(function(){
         }
 
 }
-
 
 });
 
