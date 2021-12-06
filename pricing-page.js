@@ -125,7 +125,7 @@ $(function(){
         //alert("Calculate button clicked");
         uiStorage.calculatorCardBlank.hide();
         uiStorage.calculatorCardTransition.show();
-        setTimeout(function(){calculatorCardTransition.hide();}, 1000);
+        setTimeout(function(){uiStorage.calculatorCardTransition.hide();}, 1000);
         uiStorage.calculatorCardSwappable.show();
 
         if(isCrmApiPhoneSupportChecked()){
