@@ -200,12 +200,13 @@ $(function(){
 
 
     uiStorage.calculatorBillingCheckbox.change(function(){
-        // if(uiStorage.calculatorBillingCheckbox.is(':checked')){
-        //    // alert("calculator toggle checked");
-           
-        // }else{
-        //     //alert("calculator not checked");
-        // }
+        if(uiStorage.calculatorBillingCheckbox.is(':checked')){
+            uiStorage.billingCheckbox.prop('checked', true);
+            uiStorage.billingCheckbox.css({float: "right"});       
+        }else{
+            uiStorage.billingCheckbox.prop('checked', false);
+            uiStorage.billingCheckbox.css({float: "left"});
+        }
 
         costSwitch();
     })
@@ -475,6 +476,7 @@ $(function(){
             //alert(uiStorage.currencySelectField.val());
             if(uiStorage.billingCheckbox.is(':checked')){
                 //switch to monthly
+                
                 uiStorage.explorerCostAmount.html(packageCostPerMonth.explorerUSDMonthly);
                 uiStorage.byoCostAmount.html(packageCostPerMonth.byoUSDMonthly);
                 uiStorage.pnpCostAmount.html(packageCostPerMonth.pnpUSDMonthly);
