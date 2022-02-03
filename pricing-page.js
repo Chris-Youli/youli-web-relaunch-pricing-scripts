@@ -29,6 +29,9 @@ $(function(){
         packageCardLeftEnterprise: $(".pricing-left.enterprise"),
 
 
+
+
+        //pricing page calculator stuff
         calculatorBillingCheckbox: $("#calculator-billing-toggle"),
         calculateButton: $("#calculator-form-calculate-button"),
         calculatorCardBlank: $("#calculator-card-blank"),
@@ -52,7 +55,16 @@ $(function(){
         calculatorToggleDot: $("#calculator-toggle-dot"),
         calculatorPerMonthText: $("#calculator-per-month-label"),
         calculatorEnterpriseCallUsLabel: $("#calculator-enterprise-call-us-label"),
-        calculatorCardTransition: $("#calculator-card-transition")
+        calculatorCardTransition: $("#calculator-card-transition"),
+
+        //pricing table ui storage stuff
+        //amount in the table header
+        pricingTableExplorer: $("#pricing-table-amount-explorer"),
+        pricingTableByo: $("#pricing-table-amount-byo"),
+        pricingTablePnp: $("#pricing-table-amount-pnp"),
+
+        //currency in the table header
+        pricingTableCurrency: $(".pricing-table-currency")
 
 
     };
@@ -102,6 +114,8 @@ $(function(){
         currencyAUD: "A$"
     }
 
+    var billingFrequencyAnnual;
+
 
 
     uiStorage.billingCheckbox.change(function() {
@@ -137,11 +151,26 @@ $(function(){
             
             showEnterpriseOnCalculator();
         }else{
+            //when number of team field is empty
+            // if(!uiStorage.calculatorNumberOfTeamInput.val()){
+
+            // }
 
             if(getNumberOfTeam() > 3){
                 //alert("enterprise");
                 showEnterpriseOnCalculator();
             }else{
+                //when revenue field is empty
+                // if(!uiStorage.calculatorRevenueInput.val()){
+                //     if(isWebsiteChecked()){
+                //         //alert("pnp");
+                //         showPnpOnCalculator();
+                //     }else{
+                //         //alert("explorer");
+                //         showExplorerOnCalculator();
+                //     }
+                // }
+
                 if(getRevenueInput() < 25000){
                     if(isWebsiteChecked()){
                         //alert("pnp");
@@ -210,25 +239,24 @@ $(function(){
 
         //set checkbox unchecked(annual)
         //set initial state of toggle to left(annual)
-        uiStorage.calculatorBillingCheckbox.prop('checked', false);
-        uiStorage.calculatorToggleDot.css({float: "left"});
+
+        checkBillingFrenquencyAnnual();
 
         uiStorage.calculatorPackageLabel.html(packageNameText.explorer);
 
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
-        //alert(selectedCurrency);
 
         switch(selectedCurrency){
             //select usd, initial state is annual cost
             case 'usd':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
-                uiStorage.calculatorCost.html(packageCostPerMonth.explorerUSDAnnual);
+                uiStorage.calculatorCost.html(billingFrequencyAnnual? packageCostPerMonth.explorerUSDAnnual: packageCostPerMonth.explorerUSDMonthly);
                 break;
 
             //select aud, initial state is annual cost
             case 'aud':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
-                uiStorage.calculatorCost.html(packageCostPerMonth.explorerAUDAnnual);
+                uiStorage.calculatorCost.html(billingFrequencyAnnual? packageCostPerMonth.explorerAUDAnnual: packageCostPerMonth.explorerAUDMonthly);
                 break;
 
             default:
@@ -254,8 +282,8 @@ $(function(){
 
         //set checkbox unchecked(annual)
         //set initial state of toggle to left(annual)
-        uiStorage.calculatorBillingCheckbox.prop('checked', false);
-        uiStorage.calculatorToggleDot.css({float: "left"});
+        checkBillingFrenquencyAnnual();
+
 
         uiStorage.calculatorPackageLabel.html(packageNameText.byo);
 
@@ -266,13 +294,13 @@ $(function(){
             //select usd, initial state is annual cost
             case 'usd':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
-                uiStorage.calculatorCost.html(packageCostPerMonth.byoUSDAnnual);
+                uiStorage.calculatorCost.html(billingFrequencyAnnual? packageCostPerMonth.byoUSDAnnual: packageCostPerMonth.byoUSDMonthly);
                 break;
 
             //select aud, initial state is annual cost
             case 'aud':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
-                uiStorage.calculatorCost.html(packageCostPerMonth.byoAUDAnnual);
+                uiStorage.calculatorCost.html(billingFrequencyAnnual? packageCostPerMonth.byoAUDAnnual: packageCostPerMonth.byoAUDMonthly);
                 break;
 
             default:
@@ -285,7 +313,6 @@ $(function(){
         uiStorage.calculatorCost.show();
         uiStorage.calculatorPerMonthText.show();
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.byoBookingFee);
-
     }
 
     var showPnpOnCalculator = function(){
@@ -298,11 +325,9 @@ $(function(){
 
         //set checkbox unchecked(annual)
         //set initial state of toggle to left(annual)
-        uiStorage.calculatorBillingCheckbox.prop('checked', false);
-        uiStorage.calculatorToggleDot.css({float: "left"});
+        checkBillingFrenquencyAnnual();
 
         uiStorage.calculatorPackageLabel.html(packageNameText.pnp);
-
 
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
 
@@ -310,13 +335,13 @@ $(function(){
             //select usd, initial state is annual cost
             case 'usd':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
-                uiStorage.calculatorCost.html(packageCostPerMonth.pnpUSDAnnual);
+                uiStorage.calculatorCost.html(billingFrequencyAnnual? packageCostPerMonth.pnpUSDAnnual: packageCostPerMonth.pnpUSDMonthly);
                 break;
 
             //select aud, initial state is annual cost
             case 'aud':
                 uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
-                uiStorage.calculatorCost.html(packageCostPerMonth.pnpAUDAnnual);
+                uiStorage.calculatorCost.html(billingFrequencyAnnual? packageCostPerMonth.pnpAUDAnnual: packageCostPerMonth.pnpAUDMonthly);
                 break;
 
             default:
@@ -342,8 +367,7 @@ $(function(){
 
         //set checkbox unchecked(annual)
         //set initial state of toggle to left(annual)
-        uiStorage.calculatorBillingCheckbox.prop('checked', false);
-        uiStorage.calculatorToggleDot.css({float: "left"});
+        checkBillingFrenquencyAnnual();
 
         uiStorage.calculatorPackageLabel.html(packageNameText.enterprise);
 
@@ -357,6 +381,18 @@ $(function(){
         var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
         uiStorage.calculatorBookingFee.html(bookingFeeLabel.enterpriseBookingFee);
 
+    }
+
+    var checkBillingFrenquencyAnnual = function(){
+        billingFrequencyAnnual = uiStorage.billingCheckbox.is(':checked')? true: false;
+        
+        if(billingFrequencyAnnual){
+            uiStorage.calculatorBillingCheckbox.prop('checked', false);
+            uiStorage.calculatorToggleDot.css({float: "left"});
+        }else{
+            uiStorage.calculatorBillingCheckbox.prop('checked', true);
+            uiStorage.calculatorToggleDot.css({float: "right"});          
+        }
     }
 
 
