@@ -200,11 +200,14 @@ $(function(){
 
 
     uiStorage.calculatorBillingCheckbox.change(function(){
-        if(uiStorage.calculatorBillingCheckbox.is(':checked')){
-           // alert("calculator toggle checked");
-        }else{
-            //alert("calculator not checked");
-        }
+        // if(uiStorage.calculatorBillingCheckbox.is(':checked')){
+        //    // alert("calculator toggle checked");
+           
+        // }else{
+        //     //alert("calculator not checked");
+        // }
+
+        costSwitch();
     })
 
     var getRevenueInput = function(){
