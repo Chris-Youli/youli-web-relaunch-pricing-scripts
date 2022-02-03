@@ -4,6 +4,7 @@ $(function(){
     var uiStorage = {
 
         billingCheckbox: $("#billingCheckbox"),
+        billingToggleDot: $("#billing-toggle-dot"),
         currencySelectField: $("#currency-select-field"),
         currencyText: $(".currency-class-identifier"),
         currencyTextLeft: $(".package-left-currency"),
@@ -202,10 +203,12 @@ $(function(){
     uiStorage.calculatorBillingCheckbox.change(function(){
         if(uiStorage.calculatorBillingCheckbox.is(':checked')){
             uiStorage.billingCheckbox.prop('checked', true);
-            uiStorage.billingCheckbox.css({float: "right"});       
+            uiStorage.billingToggleDot.css({float: "right"});   
+            console.log("calculator checked");    
         }else{
             uiStorage.billingCheckbox.prop('checked', false);
-            uiStorage.billingCheckbox.css({float: "left"});
+            uiStorage.billingToggleDot.css({float: "left"});
+            console.log("calculator unchecked");    
         }
 
         costSwitch();
