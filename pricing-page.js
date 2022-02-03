@@ -389,16 +389,17 @@ $(function(){
     var checkBillingFrenquencyAnnual = function(){
         billingFrequencyAnnual = uiStorage.billingCheckbox.is(':checked')? true: false;
         
+        //if billing block is switched to monthly
         if(billingFrequencyAnnual){
             
-            if(uiStorage.calculatorToggleDot.not(':checked')){
+            if(uiStorage.calculatorBillingCheckbox.not(':checked')){
                 uiStorage.calculatorBillingCheckbox.prop('checked', true);
                 uiStorage.calculatorToggleDot.css({float: "right"});
             }  
 
         }else{
-            
-            if(uiStorage.calculatorToggleDot.is(':checked')){
+        //if billing block is switched to annualy    
+            if(uiStorage.calculatorBillingCheckbox.is(':checked')){
                 uiStorage.calculatorBillingCheckbox.prop('checked', false);
                 uiStorage.calculatorToggleDot.css({float: "left"});
             }
