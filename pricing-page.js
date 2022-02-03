@@ -136,7 +136,10 @@ $(function(){
 
 
     uiStorage.calculateButton.click(function(){
-      
+      showCalculatorResult();        
+    })
+
+    var showCalculatorResult = function(){
         uiStorage.calculatorCardBlank.hide();
         //hide card to show transition block
         uiStorage.calculatorCardSwappable.hide();
@@ -194,7 +197,8 @@ $(function(){
             }
 
         }
-    })
+    }
+
 
     uiStorage.calculatorBillingCheckbox.change(function(){
         if(uiStorage.calculatorBillingCheckbox.is(':checked')){
@@ -387,11 +391,16 @@ $(function(){
         billingFrequencyAnnual = uiStorage.billingCheckbox.is(':checked')? true: false;
         
         if(billingFrequencyAnnual){
-            uiStorage.calculatorBillingCheckbox.prop('checked', false);
-            uiStorage.calculatorToggleDot.css({float: "left"});
-        }else{
             uiStorage.calculatorBillingCheckbox.prop('checked', true);
-            uiStorage.calculatorToggleDot.css({float: "right"});          
+            if(uiStorage.calculatorToggleDot.not(':checked')){
+                uiStorage.calculatorToggleDot.css({float: "right"});
+            }  
+
+        }else{
+            uiStorage.calculatorBillingCheckbox.prop('checked', false);
+            if(uiStorage.calculatorToggleDot.is(':checked')){
+                uiStorage.calculatorToggleDot.css({float: "left"});
+            }
         }
     }
 
@@ -551,6 +560,10 @@ $(function(){
             uiStorage.currencyTextLeft.each(function() {
                 $(this).html(currencyTextAndSign.currencyAUD);
             });
+        }
+
+        if(calculatorResult != null){
+            showCalculatorResult();
         }
 
 }
