@@ -402,7 +402,7 @@ $(function(){
             if(uiStorage.calculatorBillingCheckbox.not(':checked')){
                 uiStorage.calculatorBillingCheckbox.prop('checked', true);
                 uiStorage.calculatorToggleDot.css({float: "right"});
-                console.log("check billing frequency annual checked")
+                console.log("check billing frequency annual checked");
 
             }  
 
@@ -411,7 +411,7 @@ $(function(){
             if(uiStorage.calculatorBillingCheckbox.is(':checked')){
                 uiStorage.calculatorBillingCheckbox.prop('checked', false);
                 uiStorage.calculatorToggleDot.css({float: "left"});
-                console.log("check billing frequency annual unchecked")
+                console.log("check billing frequency annual unchecked");
             }
         }
     }
