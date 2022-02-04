@@ -120,7 +120,7 @@ $(function () {
     //set initial values on UI elements
     uiStorage.billingCheckbox.prop('checked', true);
     uiStorage.billingToggleDot.css({ float: "left" });
-    currencySelectField.val('usd');
+    uiStorage.currencySelectField.val('usd');
     uiStorage.currencyText.each(function () {
         $(this).html(currencyTextAndSign.currencyUSD);
     });
