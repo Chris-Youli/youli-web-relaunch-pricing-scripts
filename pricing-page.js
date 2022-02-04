@@ -398,22 +398,24 @@ $(function(){
     var checkBillingFrenquencyAnnual = function(){
         billingFrequencyAnnual = uiStorage.billingCheckbox.is(':checked')? true: false;
         
+        console.log('checkBillingFrequencyAnnual is    ' + billingFrequencyAnnual.props('checked'));
+
         //if billing block is switched to monthly
         if(billingFrequencyAnnual){
             
-            if(uiStorage.calculatorBillingCheckbox.not(':checked')){
+            // if(uiStorage.calculatorBillingCheckbox.not(':checked')){
                 uiStorage.calculatorBillingCheckbox.prop('checked', true);
                 uiStorage.calculatorToggleDot.css({float: "right"});
-                console.log("check billing frequency annual checked");
+            //     console.log("check billing frequency annual checked");
 
-            }  
+            // }  
 
         }else{
         //if billing block is switched to annualy    
-            if(uiStorage.calculatorBillingCheckbox.is(':checked')){
+            // if(uiStorage.calculatorBillingCheckbox.is(':checked')){
                 uiStorage.calculatorBillingCheckbox.prop('checked', false);
                 uiStorage.calculatorToggleDot.css({float: "left"});
-                console.log("check billing frequency annual unchecked");
+                // console.log("check billing frequency annual unchecked");
             }
         }
     }
@@ -579,6 +581,7 @@ $(function(){
 
         if(calculatorResult != null){
             showCalculatorResult();
+            console.log('cost switch is called');
         }
 
 }
