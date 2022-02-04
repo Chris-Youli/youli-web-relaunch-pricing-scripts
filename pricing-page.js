@@ -119,6 +119,12 @@ $(function(){
 
 
     uiStorage.billingCheckbox.change(function() {
+        if(uiStorage.billingCheckbox.is(':checked')){
+            uiStorage.billingToggleDot.css({float: "right"});
+        }else{
+            uiStorage.billingToggleDot.css({float: "left"}); 
+        }
+        //uiStorage.billingCheckbox.is(':checked')? true: false;
         costSwitch();
     });
 
