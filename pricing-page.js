@@ -398,7 +398,7 @@ $(function(){
     var checkBillingFrenquencyAnnual = function(){
         billingFrequencyAnnual = uiStorage.billingCheckbox.is(':checked')? true: false;
         
-        console.log('checkBillingFrequencyAnnual is    ' + billingFrequencyAnnual.prop('checked'));
+        console.log('checkBillingFrequencyAnnual is    ' + uiStorage.billingCheckbox.prop('checked'));
 
         //if billing block is switched to monthly
         if(billingFrequencyAnnual){
