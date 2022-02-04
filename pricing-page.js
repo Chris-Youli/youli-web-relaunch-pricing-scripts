@@ -416,7 +416,7 @@ $(function(){
                 uiStorage.calculatorBillingCheckbox.prop('checked', false);
                 uiStorage.calculatorToggleDot.css({float: "left"});
                 // console.log("check billing frequency annual unchecked");
-            }
+            // }
         }
     }
 
