@@ -57,11 +57,12 @@ $(function(){
         calculatorEnterpriseCallUsLabel: $("#calculator-enterprise-call-us-label"),
         calculatorCardTransition: $("#calculator-card-transition"),
 
+        
         //pricing table ui storage stuff
         //amount in the table header
-        pricingTableExplorer: $("#pricing-table-amount-explorer"),
-        pricingTableByo: $("#pricing-table-amount-byo"),
-        pricingTablePnp: $("#pricing-table-amount-pnp"),
+        pricingTableAmountExplorer: $("#pricing-table-amount-explorer"),
+        pricingTablAmounteByo: $("#pricing-table-amount-byo"),
+        pricingTableAmountPnp: $("#pricing-table-amount-pnp"),
 
         //currency in the table header
         pricingTableCurrency: $(".pricing-table-currency")
@@ -160,44 +161,23 @@ $(function(){
             
             showEnterpriseOnCalculator();
         }else{
-            //when number of team field is empty
-            // if(!uiStorage.calculatorNumberOfTeamInput.val()){
-
-            // }
-
             if(getNumberOfTeam() > 3){
-                //alert("enterprise");
                 showEnterpriseOnCalculator();
             }else{
-                //when revenue field is empty
-                // if(!uiStorage.calculatorRevenueInput.val()){
-                //     if(isWebsiteChecked()){
-                //         //alert("pnp");
-                //         showPnpOnCalculator();
-                //     }else{
-                //         //alert("explorer");
-                //         showExplorerOnCalculator();
-                //     }
-                // }
 
                 if(getRevenueInput() < 25000){
                     if(isWebsiteChecked()){
-                        //alert("pnp");
                         showPnpOnCalculator();
                     }else{
-                        //alert("explorer");
                         showExplorerOnCalculator();
                     }
                 }else if(getRevenueInput() >= 25000 && getRevenueInput() < 125000){
                     if(isWebsiteChecked()){
-                        //alert("pnp");
-                        showPnpOnCalculator();
+                         showPnpOnCalculator();
                     }else{
-                        //alert("byo");
-                        showByoOnCalculator();
+                         showByoOnCalculator();
                     }
                 }else{
-                    //alert("enterprise");
                     showEnterpriseOnCalculator();
                 }
             }
@@ -585,12 +565,59 @@ $(function(){
             });
         }
 
+        updatePricingTable();
         if(calculatorResult != null){
             showCalculatorResult();
             console.log('cost switch is called');
         }
+    }
 
-}
+
+
+    var updatePricingTable = function(){
+                //switching to usd
+
+                if(uiStorage.currencySelectField.val().toLowerCase() === "usd"){
+                    //alert(uiStorage.currencySelectField.val());
+                    if(uiStorage.billingCheckbox.is(':checked')){
+                        //switch to monthly
+                        
+                        uiStorage.pricingTableAmountExplorer.html(packageCostPerMonth.explorerUSDMonthly);
+                        uiStorage.pricingTablAmounteByo.html(packageCostPerMonth.byoUSDMonthly);
+                        uiStorage.pricingTableAmountPnp.html(packageCostPerMonth.pnpUSDMonthly);
+       
+                    }else{
+                        //alert("switch to annually");
+                        uiStorage.pricingTableAmountExplorer.html(packageCostPerMonth.explorerUSDAnnual);
+                        uiStorage.pricingTablAmounteByo.html(packageCostPerMonth.byoUSDAnnual);
+                        uiStorage.pricingTableAmountPnp.html(packageCostPerMonth.pnpUSDAnnual);
+                    }
+        
+                    uiStorage.pricingTableCurrency.each(function() {
+                        $(this).html(currencyTextAndSign.currencyUSD);
+                    });
+                }else{
+        
+        
+                    //switching to aud
+                    if(uiStorage.billingCheckbox.is(':checked')){
+                        //alert("switch to monthly");
+                        uiStorage.pricingTableAmountExplorer.html(packageCostPerMonth.explorerAUDMonthly);
+                        uiStorage.pricingTablAmounteByo.html(packageCostPerMonth.byoAUDMonthly);
+                        uiStorage.pricingTableAmountPnp.html(packageCostPerMonth.pnpAUDMonthly);        
+                    }else{
+                        //alert("switch to annually");
+                        uiStorage.pricingTableAmountExplorer.html(packageCostPerMonth.explorerAUDAnnual);
+                        uiStorage.pricingTablAmounteByo.html(packageCostPerMonth.byoAUDAnnual);
+                        uiStorage.pricingTableAmountPnp.html(packageCostPerMonth.pnpAUDAnnual);
+
+                    }
+        
+                    uiStorage.pricingTableCurrency.each(function() {
+                        $(this).html(currencyTextAndSign.currencyAUD);
+                    });
+                }
+    }
 
 });
 
