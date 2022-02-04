@@ -65,7 +65,10 @@ $(function () {
         pricingTableAmountPnp: $("#pricing-table-amount-pnp"),
 
         //currency in the table header
-        pricingTableCurrency: $(".pricing-table-currency")
+        pricingTableCurrency: $(".pricing-table-currency"),
+
+        //calculator error message
+        calculatorErrorMessage: $("#calculator-error-message")
 
 
     };
@@ -118,7 +121,7 @@ $(function () {
     var billingFrequencyAnnual;
 
     //set initial values on UI elements
-    uiStorage.billingCheckbox.prop('checked', true);
+    uiStorage.billingCheckbox.prop('checked', false);
     uiStorage.billingToggleDot.css({ float: "left" });
     uiStorage.currencySelectField.val('usd');
     uiStorage.currencyText.each(function () {
@@ -214,13 +217,14 @@ $(function () {
                 showEnterpriseOnCalculator();
             } else {
 
+
                 if (getRevenueInput() < 25000) {
                     if (isWebsiteChecked()) {
                         showPnpOnCalculator();
                     } else {
                         showExplorerOnCalculator();
                     }
-                } else if (getRevenueInput() >= 25000 && getRevenueInput() < 125000) {
+                } else if (getRevenueInput() >= 25000 && getRevenueInput() < 572000) {
                     if (isWebsiteChecked()) {
                         showPnpOnCalculator();
                     } else {
