@@ -153,9 +153,11 @@ $(function () {
 
     
     uiStorage.packageCardLeftExplorer.show();
-    uiStorage.packageCardLeftBYO.hide();
-    uiStorage.packageCardLeftPNP.hide();
-    uiStorage.packageCardLeftEnterprise.hide();
+    //the display of the rest are set in the designer
+    //because those are hidden on desktop but shown on mobile 
+    // uiStorage.packageCardLeftBYO.hide();
+    // uiStorage.packageCardLeftPNP.hide();
+    // uiStorage.packageCardLeftEnterprise.hide();
 
 
     //pricing page calculator stuff
