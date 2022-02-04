@@ -207,6 +207,7 @@ $(function(){
             console.log("calculator checked");    
         }else{
             uiStorage.billingCheckbox.prop('checked', false);
+            console.log(uiStorage.billingCheckbox.prop());
             uiStorage.billingToggleDot.css({float: "left"});
             console.log("calculator unchecked");
         }
