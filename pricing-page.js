@@ -168,7 +168,7 @@ $(function () {
     uiStorage.calculatorCardBlank.show();
     uiStorage.calculatorCardSwappable.hide();
 
-    calculatorErrorMessage.hide();
+    uiStorage.calculatorErrorMessage.hide();
     //end of initial value setup
 
 
