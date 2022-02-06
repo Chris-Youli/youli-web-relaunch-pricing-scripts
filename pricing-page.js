@@ -167,6 +167,8 @@ $(function () {
     uiStorage.calculatorBillingCheckbox.prop('checked', false);
     uiStorage.calculatorCardBlank.show();
     uiStorage.calculatorCardSwappable.hide();
+
+    calculatorErrorMessage.hide();
     //end of initial value setup
 
 
@@ -198,10 +200,27 @@ $(function () {
         showCalculatorResult();
     })
 
+    var calculatorErrorState = function(){
+        uiStorage.calculatorCardBlank.show();
+        uiStorage.calculatorCardSwappable.show();
+        uiStorage.calculatorCardTransition.hide();
+        calculatorErrorMessage.show();
+    }
+
     var showCalculatorResult = function () {
+        if(uiStorage.calculatorRevenueInput.val().length === 0 || uiStorage.calculatorNumberOfTeamInput.val().length === 0){
+            calculatorErrorState();
+            return;
+        }else if(getRevenueInput() < 0 || getNumberOfTeam() < 0){
+            calculatorErrorState();
+            return;
+        }
+
+
         uiStorage.calculatorCardBlank.hide();
         //hide card to show transition block
         uiStorage.calculatorCardSwappable.hide();
+        calculatorErrorMessage.hide();
         uiStorage.calculatorCardTransition.show();
         setTimeout(function () {
             uiStorage.calculatorCardTransition.hide();
@@ -215,10 +234,10 @@ $(function () {
         } else {
             if (getNumberOfTeam() > 3) {
                 showEnterpriseOnCalculator();
-            } else {
+            } else if(getNumberOfTeam() <= 3 && getNumberOfTeam() >= 0){
 
 
-                if (getRevenueInput() < 25000) {
+                if (getRevenueInput() < 25000 && getRevenueInput() >= 0) {
                     if (isWebsiteChecked()) {
                         showPnpOnCalculator();
                     } else {
@@ -231,7 +250,7 @@ $(function () {
                         showByoOnCalculator();
                     }
                 } else {
-                    showEnterpriseOnCalculator();
+                    showEnterpriseOnCalculator(); 
                 }
             }
 
@@ -256,10 +275,13 @@ $(function () {
     })
 
     var getRevenueInput = function () {
+        console.log(uiStorage.calculatorRevenueInput.val());
+
         return parseFloat(uiStorage.calculatorRevenueInput.val());
     }
 
     var getNumberOfTeam = function () {
+        console.log(uiStorage.calculatorNumberOfTeamInput.val());
         return parseFloat(uiStorage.calculatorNumberOfTeamInput.val());
     }
 
@@ -279,6 +301,7 @@ $(function () {
             return false;
         }
     }
+
 
     var showExplorerOnCalculator = function () {
         calculatorResult = calculatorResultOptions.explorer;
