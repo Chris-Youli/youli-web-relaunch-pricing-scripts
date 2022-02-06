@@ -106,9 +106,9 @@ $(function () {
         byoAUDAnnual: "73",
         byoAUDMonthly: "80",
 
-        pnpUSDAnnual: "65",
+        pnpUSDAnnual: "64",
         pnpUSDMonthly: "70",
-        pnpAUDAnnual: "82",
+        pnpAUDAnnual: "83",
         pnpAUDMonthly: "90"
     };
 
