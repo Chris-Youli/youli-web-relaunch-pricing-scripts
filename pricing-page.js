@@ -210,9 +210,13 @@ $(function () {
     var showCalculatorResult = function () {
         if(uiStorage.calculatorRevenueInput.val().length === 0 || uiStorage.calculatorNumberOfTeamInput.val().length === 0){
             calculatorErrorState();
+            console.log(uiStorage.calculatorCardSwappable.css("display"));
+            //uiStorage.calculatorCardSwappable.hide();
             return;
         }else if(getRevenueInput() < 0 || getNumberOfTeam() < 0){
             calculatorErrorState();
+            console.log(uiStorage.calculatorCardSwappable.css("display"));
+            //uiStorage.calculatorCardSwappable.hide();
             return;
         }
 
@@ -255,6 +259,8 @@ $(function () {
             }
 
         }
+
+        console.log("outter methods + " + console.log(uiStorage.calculatorCardSwappable.css("display")));
     }
 
 
