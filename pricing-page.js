@@ -1,4 +1,3 @@
-
 $(function () {
     // links to elements on the page
     var uiStorage = {
@@ -154,7 +153,7 @@ $(function () {
     //radio button defaults is set in the designer via custom attribute
     //packageSelectionRadioButton: $(".package-card-radio-button"),
 
-    
+
     uiStorage.packageCardLeftExplorer.show();
     //the display of the rest are set in the designer
     //because those are hidden on desktop but shown on mobile 
@@ -200,7 +199,7 @@ $(function () {
         showCalculatorResult();
     })
 
-    var calculatorErrorState = function(){
+    var calculatorErrorState = function () {
         uiStorage.calculatorCardBlank.show();
         uiStorage.calculatorCardSwappable.hide();
         uiStorage.calculatorCardTransition.hide();
@@ -208,15 +207,13 @@ $(function () {
     }
 
     var showCalculatorResult = function () {
-        if(uiStorage.calculatorRevenueInput.val().length === 0 || uiStorage.calculatorNumberOfTeamInput.val().length === 0){
+        if (uiStorage.calculatorRevenueInput.val().length === 0 || uiStorage.calculatorNumberOfTeamInput.val().length === 0) {
             calculatorErrorState();
-            console.log(uiStorage.calculatorCardSwappable.css("display"));
-            //uiStorage.calculatorCardSwappable.hide();
+            // console.log(uiStorage.calculatorCardSwappable.css("display"));
             return;
-        }else if(getRevenueInput() < 0 || getNumberOfTeam() < 0){
+        } else if (getRevenueInput() < 0 || getNumberOfTeam() < 0) {
             calculatorErrorState();
-            console.log(uiStorage.calculatorCardSwappable.css("display"));
-            //uiStorage.calculatorCardSwappable.hide();
+            // console.log(uiStorage.calculatorCardSwappable.css("display"));
             return;
         }
 
@@ -238,7 +235,7 @@ $(function () {
         } else {
             if (getNumberOfTeam() > 3) {
                 showEnterpriseOnCalculator();
-            } else if(getNumberOfTeam() <= 3 && getNumberOfTeam() >= 0){
+            } else if (getNumberOfTeam() <= 3 && getNumberOfTeam() >= 0) {
 
 
                 if (getRevenueInput() < 25000 && getRevenueInput() >= 0) {
@@ -254,13 +251,13 @@ $(function () {
                         showByoOnCalculator();
                     }
                 } else {
-                    showEnterpriseOnCalculator(); 
+                    showEnterpriseOnCalculator();
                 }
             }
 
         }
 
-        console.log("outter methods + " + console.log(uiStorage.calculatorCardSwappable.css("display")));
+        //console.log("outter methods + " + console.log(uiStorage.calculatorCardSwappable.css("display")));
     }
 
 
@@ -268,26 +265,26 @@ $(function () {
         if (uiStorage.calculatorBillingCheckbox.is(':checked')) {
             uiStorage.billingCheckbox.prop('checked', true);
             uiStorage.billingToggleDot.css({ float: "right" });
-            console.log("calculator checked");
+            //console.log("calculator checked");
         } else {
             uiStorage.billingCheckbox.prop('checked', false);
-            console.log(uiStorage.billingCheckbox.prop('checked'));
+            //console.log(uiStorage.billingCheckbox.prop('checked'));
 
             uiStorage.billingToggleDot.css({ float: "left" });
-            console.log("calculator unchecked");
+            //console.log("calculator unchecked");
         }
 
         costSwitch();
     })
 
     var getRevenueInput = function () {
-        console.log(uiStorage.calculatorRevenueInput.val());
+        //console.log(uiStorage.calculatorRevenueInput.val());
 
         return parseFloat(uiStorage.calculatorRevenueInput.val());
     }
 
     var getNumberOfTeam = function () {
-        console.log(uiStorage.calculatorNumberOfTeamInput.val());
+        //console.log(uiStorage.calculatorNumberOfTeamInput.val());
         return parseFloat(uiStorage.calculatorNumberOfTeamInput.val());
     }
 
@@ -466,7 +463,7 @@ $(function () {
     var checkBillingFrenquencyAnnual = function () {
         billingFrequencyAnnual = uiStorage.billingCheckbox.is(':checked') ? true : false;
 
-        console.log('checkBillingFrequencyAnnual is    ' + uiStorage.billingCheckbox.prop('checked'));
+        // console.log('checkBillingFrequencyAnnual is    ' + uiStorage.billingCheckbox.prop('checked'));
 
         //if billing block is switched to monthly
         if (billingFrequencyAnnual) {
@@ -650,7 +647,7 @@ $(function () {
         updatePricingTable();
         if (calculatorResult != null) {
             showCalculatorResult();
-            console.log('cost switch is called');
+            // console.log('cost switch is called');
         }
     }
 
