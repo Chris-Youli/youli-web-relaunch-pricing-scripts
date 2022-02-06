@@ -204,7 +204,7 @@ $(function () {
         uiStorage.calculatorCardBlank.show();
         uiStorage.calculatorCardSwappable.show();
         uiStorage.calculatorCardTransition.hide();
-        calculatorErrorMessage.show();
+        uiStorage.calculatorErrorMessage.show();
     }
 
     var showCalculatorResult = function () {
@@ -220,7 +220,7 @@ $(function () {
         uiStorage.calculatorCardBlank.hide();
         //hide card to show transition block
         uiStorage.calculatorCardSwappable.hide();
-        calculatorErrorMessage.hide();
+        uiStorage.calculatorErrorMessage.hide();
         uiStorage.calculatorCardTransition.show();
         setTimeout(function () {
             uiStorage.calculatorCardTransition.hide();
