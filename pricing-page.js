@@ -119,6 +119,11 @@ $(function () {
 
     var billingFrequencyAnnual;
 
+    var uiColorSet = {
+        formErrorBorderColor: "#a94442",
+        formNormalBorderColor: "#c7d0d5"
+    }
+
     //set initial values on UI elements
     uiStorage.billingCheckbox.prop('checked', false);
     uiStorage.billingToggleDot.css({ float: "left" });
@@ -208,12 +213,22 @@ $(function () {
 
     var showCalculatorResult = function () {
         if (uiStorage.calculatorRevenueInput.val().length === 0 || uiStorage.calculatorNumberOfTeamInput.val().length === 0) {
+            if(uiStorage.calculatorRevenueInput.val().length === 0){
+                uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formErrorBorderColor);
+            }
+            if(uiStorage.calculatorNumberOfTeamInput.val().length === 0){
+                uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formErrorBorderColor);
+            }
             calculatorErrorState();
-            // console.log(uiStorage.calculatorCardSwappable.css("display"));
             return;
         } else if (getRevenueInput() < 0 || getNumberOfTeam() < 0) {
+            if(getRevenueInput() < 0){
+                uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formErrorBorderColor);
+            }
+            if(getNumberOfTeam() < 0){
+                uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formErrorBorderColor);
+            }
             calculatorErrorState();
-            // console.log(uiStorage.calculatorCardSwappable.css("display"));
             return;
         }
 
@@ -223,6 +238,9 @@ $(function () {
         uiStorage.calculatorCardSwappable.hide();
         uiStorage.calculatorErrorMessage.hide();
         uiStorage.calculatorCardTransition.show();
+        uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formNormalBorderColor);
+        uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formNormalBorderColor);
+
         setTimeout(function () {
             uiStorage.calculatorCardTransition.hide();
             uiStorage.calculatorCardSwappable.show();
