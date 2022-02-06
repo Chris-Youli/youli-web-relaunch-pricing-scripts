@@ -202,7 +202,7 @@ $(function () {
 
     var calculatorErrorState = function(){
         uiStorage.calculatorCardBlank.show();
-        uiStorage.calculatorCardSwappable.show();
+        uiStorage.calculatorCardSwappable.hide();
         uiStorage.calculatorCardTransition.hide();
         uiStorage.calculatorErrorMessage.show();
     }
