@@ -215,18 +215,26 @@ $(function () {
         if (uiStorage.calculatorRevenueInput.val().length === 0 || uiStorage.calculatorNumberOfTeamInput.val().length === 0) {
             if(uiStorage.calculatorRevenueInput.val().length === 0){
                 uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formErrorBorderColor);
+            }else{
+                uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formNormalBorderColor);
             }
             if(uiStorage.calculatorNumberOfTeamInput.val().length === 0){
                 uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formErrorBorderColor);
+            }else{
+                uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formNormalBorderColor);
             }
             calculatorErrorState();
             return;
         } else if (getRevenueInput() < 0 || getNumberOfTeam() < 0) {
             if(getRevenueInput() < 0){
                 uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formErrorBorderColor);
+            }else{
+                uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formNormalBorderColor);
             }
             if(getNumberOfTeam() < 0){
                 uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formErrorBorderColor);
+            }else{
+                uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formNormalBorderColor);
             }
             calculatorErrorState();
             return;
