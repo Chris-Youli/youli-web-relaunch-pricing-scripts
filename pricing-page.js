@@ -55,6 +55,7 @@ $(function () {
         calculatorPerMonthText: $("#calculator-per-month-label"),
         calculatorEnterpriseCallUsLabel: $("#calculator-enterprise-call-us-label"),
         calculatorCardTransition: $("#calculator-card-transition"),
+        calculatorBillingBlock: $("#calculator-billing-block"),
 
 
         //pricing table ui storage stuff
@@ -340,6 +341,9 @@ $(function () {
         uiStorage.calculatorLottiePnp.hide();
         uiStorage.calculatorLottieEnterprise.hide();
 
+        uiStorage.calculatorBillingBlock.show();
+
+
         //set checkbox unchecked(annual)
         //set initial state of toggle to left(annual)
 
@@ -382,6 +386,8 @@ $(function () {
         uiStorage.calculatorLottieByo.show();
         uiStorage.calculatorLottiePnp.hide();
         uiStorage.calculatorLottieEnterprise.hide();
+
+        uiStorage.calculatorBillingBlock.show();
 
         //set checkbox unchecked(annual)
         //set initial state of toggle to left(annual)
@@ -426,6 +432,8 @@ $(function () {
         uiStorage.calculatorLottiePnp.show();
         uiStorage.calculatorLottieEnterprise.hide();
 
+        uiStorage.calculatorBillingBlock.show();
+
         //set checkbox unchecked(annual)
         //set initial state of toggle to left(annual)
         checkBillingFrenquencyAnnual();
@@ -467,6 +475,8 @@ $(function () {
         uiStorage.calculatorLottieByo.hide();
         uiStorage.calculatorLottiePnp.hide();
         uiStorage.calculatorLottieEnterprise.show();
+
+        uiStorage.calculatorBillingBlock.hide();
 
         //set checkbox unchecked(annual)
         //set initial state of toggle to left(annual)
