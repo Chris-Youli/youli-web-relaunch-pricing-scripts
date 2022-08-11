@@ -84,7 +84,7 @@ $(function () {
     var packageNameText = {
         explorer: "explorer",
         byo: "pro byo website",
-        pnp: "Pro PLUG N PLay",
+        pnp: "Pro+ Website",
         enterprise: "enterprise"
     }
 
