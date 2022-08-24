@@ -107,10 +107,10 @@ $(function () {
         byoAUDAnnual: "73",
         byoAUDMonthly: "80",
 
-        pnpUSDAnnual: "64",
-        pnpUSDMonthly: "70",
-        pnpAUDAnnual: "83",
-        pnpAUDMonthly: "90"
+        pnpUSDAnnual: "73",
+        pnpUSDMonthly: "80",
+        pnpAUDAnnual: "100",
+        pnpAUDMonthly: "110"
     };
 
     var currencyTextAndSign = {
